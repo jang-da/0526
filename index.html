@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Seven Knights Rebirth 홈페이지</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #fff;
+      }
+      /* GNB 고정 스타일 */
+      #gnb {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.96);
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        display: flex;
+        align-items: center;
+      }
+      #gnb nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0 40px;
+      }
+      #gnb nav li {
+        margin-right: 40px;
+      }
+      #gnb nav li:last-child {
+        margin-right: 0;
+      }
+      #gnb nav a {
+        text-decoration: none;
+        color: #222;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 10px 0;
+        transition: color 0.2s;
+      }
+      #gnb nav a:hover {
+        color: #7b4fe0;
+      }
+      /* 메인 비주얼 영역 */
+      #main-visual {
+        width: 100vw;
+        max-width: 1920px;
+        height: 56.25vw; /* 16:9 비율 */
+        max-height: 1080px;
+        margin: 0 auto;
+        position: relative;
+        background: #fff;
+        overflow: hidden;
+        margin-top: 70px; /* GNB 높이만큼 아래로 */
+      }
+      #main-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity 2s;
+        display: block;
+      }
+      #img1 {
+        z-index: 1;
+      }
+      #img2 {
+        z-index: 2;
+      }
+      @media (max-width: 1200px) {
+        #main-visual {
+          max-width: 100vw;
+          max-height: 56.25vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="gnb">
+      <nav>
+        <ul>
+          <li><a href="#">홈</a></li>
+          <li><a href="#">게임소개</a></li>
+          <li><a href="#">커뮤니티</a></li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="main-visual">
+      <img src="KakaoTalk_20250526_08395214.png" id="img1" alt="세븐나이츠 리버스 첫 이미지" />
+      <img src="KakaoTalk_20250526_083952614.png" id="img2" alt="세븐나이츠 리버스 두 번째 이미지" />
+    </div>
+    <script>
+      window.onload = function () {
+        var img1 = document.getElementById("img1");
+        var img2 = document.getElementById("img2");
+        // 첫 번째 이미지 0.5초 뒤 2초 동안 페이드인
+        setTimeout(function () {
+          img1.style.opacity = 1;
+          // 첫 번째 이미지가 다 나타난 후(2초 후) 두 번째 이미지 페이드인
+          setTimeout(function () {
+            img2.style.opacity = 1;
+          }, 2000);
+        }, 500);
+      };
+    </script>
+  </body>
+</html>
